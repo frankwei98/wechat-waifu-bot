@@ -1,5 +1,16 @@
 # WeChat-waifu-bot
 
+## Warning
+
+The author is a Python rookie,and this program is under development.
+
+Please don't use this code in production
+
+## Install
+
+1. Install wxpy dependency
+
+> pip install -U wxpy
 
 ## Contributing
 
