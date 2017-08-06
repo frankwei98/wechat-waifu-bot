@@ -2,9 +2,9 @@
 
 ## Warning
 
-The author is a Python rookie,and this program is under development.
+The author is a Python rookie,and this program is UNDER DEVELOPMENT.
 
-Please don't use this code in production
+PLEASE DON'T USE THIS CODE IN PRODUCTION
 
 ## Install
 
