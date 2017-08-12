@@ -27,5 +27,5 @@ PLEASE DON'T USE THIS CODE IN PRODUCTION ENVIRONMENT
 5. Submit a pull request :)
 
 ## Author
-
-Released under the [GPL v3](./LICENSE) License.
+© Frank Wei All Right Reserved.
+This program is released under the [GPL v3](./LICENSE) License.

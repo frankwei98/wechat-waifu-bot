@@ -6,7 +6,7 @@ import waifu as class_waifu
 from bs4 import BeautifulSoup
 
 
-def get_waifu_obj(keyword):
+def get_waifu_obj_list(keyword) -> class_waifu:
     """
 
     :param keyword: a single or multiple keywords
@@ -42,9 +42,9 @@ def get_waifu_json(keyword):
     # Using json to load to the data as dict
     return json.loads(str(soup))
 
-
-# only for debug
+# only for test
 # search_value = input('Please input one or multiple keyword(s): (e.g thighhighs seifuku kantoku) \n')
 # search_value = 'thighhighs seifuku kantoku'
-#
-# print(get_waifu_url_list(search_value).pop(0))
+# #
+# _waifu_obj = get_waifu_obj_list(search_value).pop(0)
+# _waifu_obj.download_picture()
