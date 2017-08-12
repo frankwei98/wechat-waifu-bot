@@ -8,15 +8,18 @@ PLEASE DON'T USE THIS CODE IN PRODUCTION ENVIRONMENT
 
 ## Install
 
-1. Install wxpy dependency
+1. Install dependency
 
 > pip install -U wxpy
+
+> pip install requests
 
 2. Run the bot & scan QRCode to login WeChat
 
 > python bot.py
 
-3. Send keyword,end with `.waifu` to your bot, the bot will reply with waifu images url
+3. Send keyword,end with `.waifu` to your bot, the bot will reply
+with waifu images
 
 ## Contributing
 
@@ -28,4 +31,5 @@ PLEASE DON'T USE THIS CODE IN PRODUCTION ENVIRONMENT
 
 ## Author
 © Frank Wei All Right Reserved.
+
 This program is released under the [GPL v3](./LICENSE) License.

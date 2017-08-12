@@ -14,6 +14,8 @@ class Waifu:
     def download_picture(self):
         resp = requests.get(self.url)
         if resp.status_code == 200:
-            f = open('./cache/{0}.jpg'.format(self.id), 'wb')
+            picture_location = './cache/{0}.jpg'.format(self.id)
+            f = open(picture_location.format(self.id), 'wb')
             f.write(resp.content)
             f.close()
+            return picture_location

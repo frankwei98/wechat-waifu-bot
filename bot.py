@@ -19,16 +19,17 @@ def auto_accept_friends(msg):
 # @bot.register(chats=Group, msg_types=TEXT)
 @bot.register(msg_types=TEXT)
 def reply(msg):
+    print('{0} said "{1}"'.format(msg.sender, msg.text))
     if msg.text[-6:] in '.waifu':
+        print('{0} triggered get waifu photo function'.format(msg.sender))
         # We can now reply a single yande.re pic url
         keyword = msg.text[:-6]
-        url_list = search.get_waifu_url_list(keyword)
+        url_list = search.get_waifu_obj_list(keyword)
         # Random Photo with random integer. RandInt range from 0 to the length of the list
         _rand = randint(0, len(url_list))
         url = url_list.pop(_rand)
-        # write a mod that get img file and send the img location string
-
-        return url
+        # write a mod that get img file and send the img location string here
+        return '@img@{0}'.format(url.download_picture())
 
 
 # Keep running
