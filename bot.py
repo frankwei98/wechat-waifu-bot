@@ -1,6 +1,6 @@
-import yandere_search as search
-
+from random import randint
 from wxpy import *
+import yandere_search as search
 
 # init bot
 bot = Bot(cache_path=True)  # Enable cache_path to improve test efficiency
@@ -22,7 +22,10 @@ def reply(msg):
     if msg.text[-6:] in '.waifu':
         # We can now reply a single yande.re pic url
         keyword = msg.text[:-6]
-        url = search.get_waifu_url_list(keyword).pop(0)
+        url_list = search.get_waifu_url_list(keyword)
+        # Random Photo with random integer. RandInt range from 0 to the length of the list
+        _rand = randint(0, len(url_list))
+        url = url_list.pop(_rand)
         # write a mod that get img file and send the img location string
 
         return url
