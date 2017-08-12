@@ -17,6 +17,7 @@ def get_waifu_obj_list(keyword) -> class_waifu:
         if _waifu['rating'] == 's':  # Safe filter: we only send safe photo
             result.append(class_waifu.Waifu(_waifu))
 
+    print('GET KEYWORD {0} waifu list '.format(keyword))
     return result
 
 

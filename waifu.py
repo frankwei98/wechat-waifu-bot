@@ -1,3 +1,5 @@
+import os
+
 import requests
 
 
@@ -12,10 +14,16 @@ class Waifu:
               )
 
     def download_picture(self):
-        resp = requests.get(self.url)
-        if resp.status_code == 200:
-            picture_location = './cache/{0}.jpg'.format(self.id)
-            f = open(picture_location.format(self.id), 'wb')
-            f.write(resp.content)
-            f.close()
-            return picture_location
+        self.print_waifu()
+        picture_location = './cache/{0}.jpg'.format(self.id)
+
+        if not os.path.isfile(picture_location):
+            print('File {0} not exist'.format(picture_location))
+            # if file not exist then download photo
+            resp = requests.get(self.url)
+            if resp.status_code == 200:
+                f = open(picture_location.format(self.id), 'wb')
+                f.write(resp.content)
+                f.close()
+
+        return picture_location
