@@ -22,7 +22,10 @@ def reply(msg):
     if msg.text[-6:] in '.waifu':
         # We can now reply a single yande.re pic url
         keyword = msg.text[:-6]
-        return search.get_waifu_list(keyword).pop(0)
+        url = search.get_waifu_url_list(keyword).pop(0)
+        # write a mod that get img file and send the img location string
+
+        return url
 
 
 # Keep running
