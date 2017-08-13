@@ -1,21 +1,22 @@
-"""Search Yande.re With tag
-and return json"""
+"""
+Search Yande.re With tag
+and return json
+"""
 import json
 import requests
-import waifu as class_waifu
+from waifu import Waifu
 from bs4 import BeautifulSoup
 
 
-def get_waifu_obj_list(keyword) -> class_waifu:
+def get_waifu_obj_list(keyword):
     """
-
     :param keyword: a single or multiple keywords
-    :return: A Waifu Object (Yes, We are now Object-oriented Programming)
+    :return: A List with Waifu Object(s) (Yes, We are now Object-oriented Programming :) )
     """
     result = []
     for _waifu in get_waifu_json(keyword):
         if _waifu['rating'] == 's':  # Safe filter: we only send safe photo
-            result.append(class_waifu.Waifu(_waifu, 'yandere'))
+            result.append(Waifu(_waifu, 'yandere'))  # Append Waifu Object to the list
 
     print('GET KEYWORD {0} waifu list '.format(keyword))
     return result
@@ -25,7 +26,7 @@ def get_waifu_url_list(keyword):
     """
 
     :param keyword: a single or multiple keywords
-    :return: A list with jpeg url
+    :return: A list with jpeg url(s)
     """
     result = []
     for _waifu in get_waifu_json(keyword):
@@ -36,6 +37,10 @@ def get_waifu_url_list(keyword):
 
 
 def get_waifu_json(keyword):
+    """
+    :param keyword: a single or multiple keywords for search
+    :return: A Dict with deserialized json data
+    """
     # you can set what site, which pages, the max limit, or even tags
     url = requests.get("https://yande.re/post.json", dict(pages=1, limit=15, tags=keyword))
     # Get json data by using BeautifulSoup

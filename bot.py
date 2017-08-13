@@ -32,6 +32,7 @@ def reply(msg):
         _waifu = waifu_list.pop(_rand)
 
         msg.reply_image(_waifu.download_picture())
+        print('Send waifu image successful')
         # write a mod that get img file and send the img location string here
         # return '@img@{0}'.format(url.download_picture())
 
