@@ -1,7 +1,7 @@
 from random import randint
 from wxpy import *
-import yandere_search as search
-
+# import yandere_search as search
+from search import *
 # init bot
 bot = Bot(cache_path=True)  # Enable cache_path to improve test efficiency
 
@@ -25,7 +25,9 @@ def reply(msg):
 
         # We can now reply a single yande.re pic url
         keyword = msg.text[:-6]
-        waifu_list = search.get_waifu_obj_list(keyword)
+        # we now support yande.re and konachan
+        waifu_list = Yandere(keyword).get_waifu_obj_list()
+        # waifu_list = Konachan(keyword).get_waifu_obj_list()
 
         # Random Photo with random integer. RandInt range from 0 to the length of the list
         _rand = randint(0, len(waifu_list))

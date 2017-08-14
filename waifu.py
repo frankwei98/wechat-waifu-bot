@@ -5,7 +5,11 @@ import requests
 
 class Waifu:
     def __init__(self, waifu_obj, site):
-        self.url = waifu_obj['jpeg_url']
+        # konachan's url starts with '//' cause problem for download mod in Waifu
+        if waifu_obj['jpeg_url'].startswith('//'):
+            self.url = 'http:' + waifu_obj['jpeg_url']
+        else:
+            self.url = waifu_obj['jpeg_url']
         self.id = waifu_obj['id']
         self.site = site
 
