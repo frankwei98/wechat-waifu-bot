@@ -18,7 +18,7 @@ PLEASE DON'T USE THIS CODE IN PRODUCTION ENVIRONMENT
 
 > python bot.py
 
-3. Send keyword,end with `.waifu` to your bot, the bot will reply
+3. Send keyword(s) to your bot,end with `.waifu`, the bot will reply
 with waifu images
 
 ## Contributing

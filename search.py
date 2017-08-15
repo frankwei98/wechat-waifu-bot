@@ -18,12 +18,11 @@ class Search:
             if _waifu['rating'] == 's':  # Safe filter: we only send safe photo
                 result.append(Waifu(_waifu, self.site_name))  # Append Waifu Object to the list
 
-        print('GET keyword {0} waifu list '.format(self.keyword))
+        print('GET waifu list of keyword {0} '.format(self.keyword))
         return result
 
     def get_waifu_url_list(self):
         """
-
         :return: A list with jpeg url(s)
         """
         result = []
@@ -37,16 +36,16 @@ class Search:
         """
         :return: A Dict with deserialized json data
         """
-        # you can set what site, which pages, the max limit, or even tags
-        url = self.send_request()
+        url = self.define_search_api()
         # Get json data by using BeautifulSoup
         soup = BeautifulSoup(url.text, "html.parser")
         # Using json to load to the data as dict
         return json.loads(str(soup))
 
-    def send_request(self):
+    def define_search_api(self):
         # normal is yandere
         # wait for override
+        # you can set what site, which pages, the max limit, or even tags
         return requests.get("https://yande.re/post.json", dict(pages=1, limit=15, tags=self.keyword))
 
 
@@ -54,7 +53,7 @@ class Yandere(Search):
     def __init__(self, keyword):
         super().__init__(keyword, 'Yandere')
 
-    def send_request(self):
+    def define_search_api(self):
         return requests.get("https://yande.re/post.json", dict(pages=1, limit=15, tags=self.keyword))
 
 
@@ -62,9 +61,5 @@ class Konachan(Search):
     def __init__(self, keyword):
         super().__init__(keyword, 'Konachan')
 
-    def send_request(self):
-        return requests.get("https://konachan.com/post.json", dict(pages=1, limit=15, tags=self.keyword))
-
-
-        # for _waifu in Konachan('seifuku').get_waifu_url_list():
-        #     print(_waifu)
+    def define_search_api(self):
+        return requests.get("https://konachan.com/post.json", dict(pages=1, limit=30, tags=self.keyword))

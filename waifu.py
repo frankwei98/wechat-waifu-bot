@@ -5,7 +5,7 @@ import requests
 
 class Waifu:
     def __init__(self, waifu_obj, site):
-        # konachan's url starts with '//' cause problem for download mod in Waifu
+        # konachan's url starts with '//' cause problem for download_picture function
         if waifu_obj['jpeg_url'].startswith('//'):
             self.url = 'http:' + waifu_obj['jpeg_url']
         else:
@@ -19,16 +19,18 @@ class Waifu:
               )
 
     def download_picture(self):
+        # print waifu info
         self.print_waifu()
-        picture_location = './cache/{0}-{1}.jpg'.format(self.site, self.id)
+        # define the format rule
+        file_location = './cache/{0}-{1}.jpg'.format(self.site, self.id)
 
-        if not os.path.isfile(picture_location):
-            print('File {0} not exist'.format(picture_location))
-            # if file not exist then download photo
+        # if file not exist then download photo
+        if not os.path.isfile(file_location):
+            print('File {0} not exist'.format(file_location))
             resp = requests.get(self.url)
             if resp.status_code == 200:
-                f = open(picture_location.format(self.id), 'wb')
+                f = open(file_location, 'wb')
                 f.write(resp.content)
                 f.close()
 
-        return picture_location
+        return file_location

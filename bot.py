@@ -1,6 +1,6 @@
 from random import randint
 from wxpy import *
-# import yandere_search as search
+# import search engine
 from search import *
 # init bot
 bot = Bot(cache_path=True)  # Enable cache_path to improve test efficiency
