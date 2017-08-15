@@ -10,9 +10,7 @@ PLEASE DON'T USE THIS CODE IN PRODUCTION ENVIRONMENT
 
 1. Install dependency
 
-> pip install -U wxpy
-
-> pip install requests
+> pip install -r requirements.txt
 
 2. Run the bot & scan QRCode to login WeChat
 
