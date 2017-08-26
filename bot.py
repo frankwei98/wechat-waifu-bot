@@ -1,7 +1,10 @@
 from random import randint
+
 from wxpy import *
+
 # import search engine
 from search import *
+
 # init bot
 bot = Bot(cache_path=True)  # Enable cache_path to improve test efficiency
 
@@ -12,7 +15,7 @@ def auto_accept_friends(msg):
     if 'I need waifu' in msg.text.lower():
         # Accept (msg.card is the user object)
         new_friend = bot.accept_friend(msg.card)
-        new_friend.send('你现在可以通过 「关键词.waifu」 来找老婆的照片啦')
+        new_friend.send('你现在可以通过 "关键词.waifu" 来找动漫人物照片啦')
 
 
 # Not only group chat

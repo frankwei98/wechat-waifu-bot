@@ -5,9 +5,9 @@ from waifu import Waifu
 
 
 class Search:
-    def __init__(self, keyword, site_name):
+    def __init__(self, keyword, sitename):
         self.keyword = keyword
-        self.site_name = site_name
+        self.sitename = sitename
 
     def get_waifu_obj_list(self):
         """
@@ -16,7 +16,7 @@ class Search:
         result = []
         for _waifu in self.get_waifu_json():
             if _waifu['rating'] == 's':  # Safe filter: we only send safe photo
-                result.append(Waifu(_waifu, self.site_name))  # Append Waifu Object to the list
+                result.append(Waifu(_waifu, self.sitename))  # Append Waifu Object to the list
 
         print('GET waifu list of keyword {0} '.format(self.keyword))
         return result
