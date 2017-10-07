@@ -19,9 +19,10 @@ class Waifu:
         self.sitename = sitename
 
     def print_waifu(self):
-        print('ID is {0}, JPEG Link is {1}'
-              .format(self.id, self.url)
-              )
+        print(
+            'ID is {0}, JPEG Link is {1}'
+                .format(self.id, self.url)
+        )
 
     def download_picture(self):
         # print waifu info
@@ -34,8 +35,7 @@ class Waifu:
             print('File {0} not exist'.format(file_location))
             resp = requests.get(self.url)
             if resp.status_code == 200:
-                f = open(file_location, 'wb')
-                f.write(resp.content)
-                f.close()
+                with open(file_location, 'wb') as f:
+                    f.write(resp.content)
 
         return file_location
