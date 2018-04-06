@@ -2,9 +2,8 @@
 
 ## Warning
 
-The author is a Python rookie,and this program is UNDER DEVELOPMENT.
+The author is a Python rookie,and this program is NO LONGER FOR MAINTENANCE.
 
-PLEASE DON'T USE THIS CODE IN PRODUCTION ENVIRONMENT
 
 ## Install
 
